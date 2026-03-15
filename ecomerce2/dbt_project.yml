@@ -29,8 +29,36 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
+# Configuracoes de modelos por camada
 models:
-  ecomerce2:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+  ecommerce:                          # Deve bater com o name do projeto
+    bronze:
+      +materialized: view             # Views - sempre atualizadas, sem custo de storage
+      +schema: bronze                 # Schema: bronze
+      +tags: ["bronze", "raw"]
+      +meta:
+        modeling_layer: bronze
+
+    silver:
+      +materialized: table            # Tables - colunas calculadas persistidas
+      +schema: silver                 # Schema: silver
+      +tags: ["silver", "cleaned"]
+      +meta:
+        modeling_layer: silver
+
+    gold:
+      +materialized: table            # Tables - KPIs prontos para consumo
+      +tags: ["gold", "kpi", "metrics"]
+      +meta:
+        modeling_layer: gold
+      sales:
+        +schema: gold_sales           # Schema: gold_sales
+      customer:
+        +schema: gold_cs # Schema: gold_cs
+      pricing:
+        +schema: gold_pricing         # Schema: gold_pricing
+
+# Variaveis do projeto
+vars:
+  segmentacao_vip_threshold: 10000    # Receita minima para cliente VIP
+  segmentacao_top_tier_threshold: 5000 # Receita minima para TOP_TIER
