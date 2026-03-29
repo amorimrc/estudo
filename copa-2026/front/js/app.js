@@ -6,6 +6,8 @@ const FLAGS = {
   CIV:'🇨🇮', EGY:'🇪🇬', CAM:'🇨🇲', ANG:'🇦🇴', QAT:'🇶🇦', SAU:'🇸🇦', KOR:'🇰🇷',
   JAP:'🇯🇵', AUS:'🇦🇺', CHI:'🇨🇱', ECU:'🇪🇨', PAN:'🇵🇦', SVK:'🇸🇰', SRB:'🇷🇸',
   AUT:'🇦🇹', NZL:'🇳🇿', ALG:'🇩🇿',
+  TUN:'🇹🇳', IRN:'🇮🇷', POL:'🇵🇱', VEN:'🇻🇪', HON:'🇭🇳',
+  CRC:'🇨🇷', UKR:'🇺🇦', TUR:'🇹🇷', WAL:'🏴󠁧󠁢󠁷󠁬󠁳󠁿', SCO:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',
 };
 
 const TEAM_NAMES = {
@@ -17,6 +19,8 @@ const TEAM_NAMES = {
   QAT:'Catar', SAU:'Arábia Saudita', KOR:'Coreia do Sul', JAP:'Japão', AUS:'Austrália',
   CHI:'Chile', ECU:'Equador', PAN:'Panamá', SVK:'Eslováquia', SRB:'Sérvia',
   AUT:'Áustria', NZL:'Nova Zelândia', ALG:'Argélia',
+  TUN:'Tunísia', IRN:'Irã', POL:'Polônia', VEN:'Venezuela', HON:'Honduras',
+  CRC:'Costa Rica', UKR:'Ucrânia', TUR:'Turquia', WAL:'País de Gales', SCO:'Escócia',
 };
 
 function flagEmoji(code) { return FLAGS[code] ?? '🏳️'; }
@@ -28,7 +32,7 @@ function formatDate(iso) {
   });
 }
 
-const PHASE_LABELS = { group:'Grupo', round16:'Oitavas', quarter:'Quartas', semi:'Semi', final:'Final' };
+const PHASE_LABELS = { group:'Grupo', round32:'Rodada de 32', round16:'Oitavas', quarter:'Quartas', semi:'Semifinal', third:'3º Lugar', final:'Final' };
 const STATUS_LABELS = { scheduled:'', live:'AO VIVO', finished:'Encerrado' };
 
 function matchCard(m) {

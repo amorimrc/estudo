@@ -187,9 +187,11 @@ body {
 }
 
 .badge--group   { background: #e8f5e9; color: var(--green); }
+.badge--round32 { background: #ede7f6; color: #4527a0; }
 .badge--round16 { background: #e3f2fd; color: #1565c0; }
 .badge--quarter { background: #fff8e1; color: #f57f17; }
 .badge--semi    { background: #fce4ec; color: #c62828; }
+.badge--third   { background: #f3e5f5; color: #6a1b9a; }
 .badge--final   { background: var(--yellow); color: var(--blue); }
 .badge--live    { background: var(--green); color: var(--white); }
 .badge--finished{ background: var(--gray); color: var(--gray-dark); }

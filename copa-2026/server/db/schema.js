@@ -34,7 +34,8 @@ function initSchema() {
       match_date  DATETIME NOT NULL,
       home_score  INTEGER,
       away_score  INTEGER,
-      status      TEXT DEFAULT 'scheduled'
+      status              TEXT DEFAULT 'scheduled',
+      external_match_id   TEXT
     );
 
     CREATE TABLE IF NOT EXISTS predictions (
@@ -55,6 +56,12 @@ function initSchema() {
       UNIQUE(user_id)
     );
   `);
+
+  // Migração: adiciona coluna se banco já existir sem ela
+  const cols = db.pragma('table_info(matches)').map(c => c.name);
+  if (!cols.includes('external_match_id')) {
+    db.exec('ALTER TABLE matches ADD COLUMN external_match_id TEXT');
+  }
 }
 
 module.exports = { getDb };

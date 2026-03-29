@@ -1,8 +1,8 @@
 async function pageJogos() {
   const matches = await API.get('/api/matches');
 
-  const phases = ['group', 'round16', 'quarter', 'semi', 'final'];
-  const phaseLabels = { group: 'Fase de Grupos', round16: 'Oitavas', quarter: 'Quartas', semi: 'Semifinal', final: 'Final' };
+  const phases = ['group', 'round32', 'round16', 'quarter', 'semi', 'third', 'final'];
+  const phaseLabels = { group: 'Fase de Grupos', round32: 'Rodada de 32', round16: 'Oitavas', quarter: 'Quartas', semi: 'Semifinal', third: '3º Lugar', final: 'Final' };
   const groups = [...new Set(matches.filter(m => m.phase === 'group').map(m => m.group_name))].sort();
 
   return `

@@ -8,7 +8,12 @@ const API = {
     if (token) opts.headers['Authorization'] = `Bearer ${token}`;
     if (body) opts.body = JSON.stringify(body);
 
-    const res = await fetch(path, opts);
+    let res;
+    try {
+      res = await fetch(path, opts);
+    } catch {
+      throw new Error('Falha de conexão. Verifique sua internet e tente novamente.');
+    }
     if (res.status === 401) {
       localStorage.removeItem('token');
       window.location.href = '/';

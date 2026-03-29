@@ -42,7 +42,18 @@ const Router = {
     if (handler) {
       app.innerHTML = '<p style="text-align:center;padding:3rem;color:#888">Carregando...</p>';
       try { app.innerHTML = await handler(params); }
-      catch (e) { app.innerHTML = `<p style="color:red;padding:2rem">Erro: ${e.message}</p>`; }
+      catch (e) {
+        const safePath = path.replace(/['"<>]/g, '');
+        app.innerHTML = `
+          <div style="text-align:center;padding:3rem">
+            <p style="color:#c62828;margin-bottom:1rem">${e.message || 'Erro ao carregar a página.'}</p>
+            <button onclick="Router.navigate('${safePath}', false)"
+              style="background:var(--blue);color:#fff;padding:.5rem 1.5rem;border-radius:20px;font-weight:600">
+              Tentar novamente
+            </button>
+          </div>
+        `;
+      }
       bindEvents();
     } else {
       app.innerHTML = '<h2 style="padding:2rem">Página não encontrada</h2>';
