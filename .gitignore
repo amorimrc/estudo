@@ -1,0 +1,28 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente (contém segredos)
+.env
+
+# Banco de dados SQLite
+server/db/*.db
+server/db/*.db-shm
+server/db/*.db-wal
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# Claude Code (configuração local)
+.claude/
+
+# PRD interno
+.llm/

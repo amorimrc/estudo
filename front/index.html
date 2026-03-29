@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copa do Mundo 2026</title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a href="/" class="navbar__logo" data-link>
+      <span class="navbar__logo-icon">⚽</span>
+      <span>Copa 2026</span>
+    </a>
+    <button class="navbar__hamburger" id="menuToggle" aria-label="Menu">&#9776;</button>
+    <nav class="navbar__links" id="navLinks">
+      <a href="/" data-link>Início</a>
+      <a href="/jogos" data-link>Jogos</a>
+      <a href="/palpites" data-link>Palpites</a>
+      <a href="/ranking" data-link>Ranking</a>
+    </nav>
+    <div class="navbar__user" id="navUser"></div>
+  </header>
+
+  <main id="app"></main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/router.js"></script>
+  <script src="/js/pages/home.js"></script>
+  <script src="/js/pages/jogos.js"></script>
+  <script src="/js/pages/palpites.js"></script>
+  <script src="/js/pages/ranking.js"></script>
+  <script src="/js/pages/time.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
